@@ -20,6 +20,10 @@ a:hover {
   left: 0;
   height: 100%;
   width: 100%;
+  display: -webkit-flex;
+  -webkit-flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-justify-content: center;
   display: flex;
   flex-direction: column;
   align-items: center;

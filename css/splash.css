@@ -31,6 +31,11 @@ body {
   display: inline-block;
 }
 
+#worker {
+  width: 12em;
+  height: 12em;
+}
+
 #worker path {
   fill: #fff;
 }

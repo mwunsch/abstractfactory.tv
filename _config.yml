@@ -2,4 +2,4 @@ name: Abstract Factory
 markdown: redcarpet
 exclude: [Gemfile, Gemfile.lock, Rakefile, bin, README]
 aws:
-  bucket: abstractfactory.tv
+  bucket: www.abstractfactory.tv

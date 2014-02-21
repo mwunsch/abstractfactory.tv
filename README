@@ -1,0 +1,18 @@
+AbstractFactory.tv
+==================
+
+An episodic series of audio files subscribed to and downloaded through web 
+syndication or streamed online to a computer or mobile device.[1]
+
+By Casey Kolderup and Mark Wunsch
+Github: ckolderup, mwunsch
+Twitter: @ckolderup, @markwunsch
+
+This is a Jekyll[2]-powered blog, deployed to S3[3].
+
+The Rakefile has instructions on building and deployment.
+
+[1]: http://en.wikipedia.org/wiki/Podcast
+[2]: http://jekyllrb.com/
+[3]: http://aws.amazon.com/s3/
+

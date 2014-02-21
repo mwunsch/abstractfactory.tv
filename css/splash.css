@@ -63,6 +63,9 @@ a:hover {
   font-weight: 500;
   text-transform: uppercase; 
 }
+.attribution {
+  color: #ccc;
+}
 
 #worker {
   width: 12em;

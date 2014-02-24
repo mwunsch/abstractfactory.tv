@@ -105,6 +105,11 @@ a:hover {
   -webkit-animation: rotating-gear 60s infinite linear;
 }
 
+.follow-us-on-social {
+  text-align: center;
+  margin: 0 auto;
+}
+
 @-webkit-keyframes rotating-gear {
   from {
     -webkit-transform: rotate(0deg);

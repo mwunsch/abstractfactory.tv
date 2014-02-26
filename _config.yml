@@ -1,5 +1,6 @@
 name: Abstract Factory
 markdown: redcarpet
 exclude: [Gemfile, Gemfile.lock, Rakefile, bin, README]
+permalink: none
 aws:
   bucket: www.abstractfactory.tv

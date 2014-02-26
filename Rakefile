@@ -19,7 +19,9 @@ require 'jekyll'
 
 JEKYLL_CONFIGURATION = Jekyll.configuration({})
 JEKYLL_DESTINATION = JEKYLL_CONFIGURATION["destination"]
-DRAFTS = FileList["episodes/_drafts/*.md"]
+DRAFT_EPISODES = FileList["episodes/_drafts/*.md"]
+PUBLISHED_EPISODES = FileList["episodes/_posts/*.md"]
+
 
 task :default => JEKYLL_DESTINATION
 
@@ -38,10 +40,11 @@ file JEKYLL_DESTINATION => JEKYLL_CONFIGURATION["source"] do |t|
 end
 
 directory "episodes/_posts"
+directory "episodes/_drafts"
 
-desc 'Publish a draft'
+desc "Publish a draft (optionally specifying which one)"
 task :publish, [:post] => "episodes/_posts" do |t, args|
-  drafts = DRAFTS.map {|p| Pathname.new(p) }
+  drafts = DRAFT_EPISODES.map {|p| Pathname.new(p) }
   drafts.keep_if {|d| d.basename(d.extname) == args.post } unless args.post.nil?
 
   drafts.each do |draft|
@@ -49,10 +52,21 @@ task :publish, [:post] => "episodes/_posts" do |t, args|
   end
 end
 
+desc "Create a new draft (autoincrements episode number)"
+task :draft => "episodes/_drafts" do |t|
+  episode_numbers = (DRAFT_EPISODES | PUBLISHED_EPISODES).map do |f|
+    Pathname.new(f).basename.to_s[/-?(\d+)\.\w+$/, 1]
+  end.compact.uniq.map(&:to_i)
+
+  newest_episode = (episode_numbers.max or 0) + 1
+  filename = sprintf("%03d", newest_episode)
+  FileUtils::Verbose.touch "episodes/_drafts/#{filename}.md"
+end
+
 namespace "aws" do
   require 'aws-sdk'
 
-  desc 'write to the aws bucket'
+  desc 'Write to the aws bucket'
   task :write => JEKYLL_DESTINATION do |t|
     t.prerequisites.map do |destination|
       paths = Pathname.glob("#{destination}/**/*")

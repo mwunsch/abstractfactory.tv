@@ -30,6 +30,10 @@ task :build do |t|
   Jekyll::Commands::Build.process JEKYLL_CONFIGURATION
 end
 
+task :build_drafts do |t|
+  Jekyll::Commands::Build.process JEKYLL_CONFIGURATION.merge("show_drafts" => true)
+end
+
 desc 'Cleanup jekyll build'
 task :clean do |t|
   FileUtils::Verbose.rm_r JEKYLL_DESTINATION if File.directory? JEKYLL_DESTINATION

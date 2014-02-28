@@ -1,29 +1,8 @@
 ---
-layout: splash
-title: Abstract Factory
+layout: default
 ---
 
-<div id="splash">
-  <header class="header">
-    <div class="icon">
-      {% include worker.svg %}
-    </div>
-    <h1 class="logo">{{ site.name }}</h1>
-  </header>
-
-  <p class="cheesy-one-liner">Technology <span class="intersection">&cap;</span> Creativity</p>
-  <p class="teaser">
-    An episodic audio series available via web syndication. <sup class="note"><a href="http://en.wikipedia.org/wiki/Podcast">1</a></sup>
-    <br />
-    By <a href="https://twitter.com/ckolderup">@ckolderup</a> and <a href="https://twitter.com/markwunsch">@markwunsch</a>
-    <br />
-    <strong>Coming Soon</strong>
-  </p>
-  <div class="follow-us-on-social">
-    <iframe allowtransparency="true" frameborder="0" scrolling="no" src="//platform.twitter.com/widgets/follow_button.html?screen_name=PodcastImpl&show_count=false" style="width:140px; height:20px;"></iframe>
-  </div>
-
-  <p class="attribution">
-  Worker designed by Piotrek Chuchla from the <a href="http://thenounproject.com/term/worker/21576/">Noun Project</a>.
-  </p>
-</div>
+{% for post in site.categories.episodes %}
+  {% assign text = post.excerpt }} %}
+  {% include episode.html %}
+{% endfor %}

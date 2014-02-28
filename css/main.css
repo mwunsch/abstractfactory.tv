@@ -40,6 +40,21 @@ a:hover {
 .cheesy-one-liner .intersection {
   font-family: serif;
 }
+.header .actions {
+  margin: 0;
+}
+.header .action {
+  display: inline-block;
+  font-style: italic;
+}
+.header .action-link {
+  display: block;
+  padding: 1vw;
+}
+.header .action-link:hover {
+  color: #fff;
+  text-decoration: none;
+}
 
 .content {
   line-height: 1.35;
@@ -66,6 +81,12 @@ a:hover {
   padding-bottom: 4px;
   border-bottom: 1px solid #111;
   display: block;
+  margin-left: 80px;
+}
+.episode-icon {
+  width: 64px;
+  height: 64px;
+  float: left;
 }
 .episode-link:hover {
   text-decoration: none;
@@ -75,7 +96,28 @@ a:hover {
   color: #111;
   text-decoration: none;
 }
+.episode-footer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.episode-footer a {
+  color: #999;
+}
+.episode-footer a:hover {
+  color: #000;
+  text-decoration: none;
+}
+.episode-actions {
+  margin: 0;
+  padding: 0;
+}
+.episode-action {
+  display: inline-block;
+}
 .audio-player {
+  clear: both;
   width: 100%;
 }
 

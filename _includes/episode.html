@@ -1,0 +1,33 @@
+{% assign identifier =  post.id | split: "/" | last  %}
+{% capture audio_path %}/audio/{{identifier}}.mp3{% endcapture %}
+{% capture icon_path %}icons/{{ post.icon }}.svg{% endcapture %}
+<article class="episode episode-{{ identifier }}">
+  <div class="interior">
+    <h1 class="episode-title">
+      {% include {{icon_path}} class="episode-icon" %}
+      <a href="{{ post.url }}" class="episode-link">
+        <span class="episode-number">Episode {{ identifier }}:</span> <span class="episode-name">{{ post.title }}</span>
+      </a>
+    </h1>
+    <audio controls class="audio-player listen-to-episode player-for-{{ identifier }}" src="{{ audio_path }}">
+      Hello?
+    </audio>
+    <a class="summary" href="{{ post.url }}">
+      {{ text }}
+    </a>
+    <footer class="episode-footer">
+      <a class="episode-permalink" href="{{ post.url }}">
+        <time class="episode-pubdate" datetime="{{ post.date | date_to_xml_schema }}">
+          {{ post.date | date: "%F" }}
+        </time>
+      </a>
+      <ul class="episode-actions">
+        <li class="episode-action">
+          <a class="action-link download-action" href="{{ audio_path }}">
+            <i class="fa fa-download"></i> Download
+          </a>
+        </li>
+      </ul>
+    </footer>
+  </div>
+</article>

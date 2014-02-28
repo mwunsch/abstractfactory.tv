@@ -3,14 +3,15 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>{{ page.title }}</title>
+        <title>{{ site.name }} {% if page.title %}| {{page.title}}{% endif %}</title>
         <meta name="viewport" content="width=device-width">
 
         <script type="text/javascript" src="//use.typekit.net/oxk0ozs.js"></script>
         <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.0/normalize.min.css" />
-        <link rel="stylesheet" href="/css/main.css" />
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.0/normalize.min.css">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" href="/css/main.css">
 
     </head>
     <body>
@@ -28,6 +29,17 @@
                 By <a href="https://twitter.com/ckolderup">@ckolderup</a> and <a href="https://twitter.com/markwunsch">@markwunsch</a>.
               </p>
             </div>
+            <ul class="actions">
+              <li class="action">
+                <a href="/feeds.html" class="rss-action action-link"><i class="fa fa-rss fa-lg"></i> RSS</a>
+              </li>
+              {% comment %} <li class="action"> {% endcomment %}
+              {% comment %}   <a href="/itunes.html" class="itunes-action action-link"><i class="fa fa-music fa-lg"></i> iTunes</a> {% endcomment %}
+              {% comment %} </li> {% endcomment %}
+              <li class="action">
+                <a href="https://twitter.com/podcastimpl" class="twitter-action action-link"><i class="fa fa-twitter fa-lg"></i> @PodcastImpl</a>
+              </li>
+            </ul>
         </header>
 
         <div class="content episodes">

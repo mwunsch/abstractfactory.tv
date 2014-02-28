@@ -1,0 +1,37 @@
+.logo {
+  font-family: "brandon-grotesque", 'Helvetica Neue', helvetica, sans-serif;
+  text-transform: uppercase;
+  line-height: 1;
+  display: inline-block;
+  margin: 0;
+  width: 5em;
+  word-spacing: 5em;
+  font-size: 6em;
+  font-weight: 900;
+  text-align: left;
+}
+
+.icon { 
+  display: inline-block;
+}
+
+#worker {
+  width: 10em;
+  height: 10em;
+}
+
+#worker .gear {
+  -webkit-animation: rotating-gear 60s infinite linear;
+}
+
+@-webkit-keyframes rotating-gear {
+  from {
+    -webkit-transform: rotate(0deg);
+    -webkit-transform-origin: center;
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    -webkit-transform-origin: center;
+  }
+}

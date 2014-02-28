@@ -1,0 +1,22 @@
+---
+layout: default
+title: Abstract Factory
+---
+
+{% for post in site.posts %}
+<article class="episode">
+  <div class="interior">
+    <h1 class="episode-title">
+      <a href="{{ post.url }}" class="episode-link">
+        <span class="episode-number">Episode 001:</span> <span class="episode-name">{{ post.title }}</span>
+      </a>
+    </h1>
+    <audio controls class="audio-player listen-to-episode">
+      Hello?
+    </audio>
+    <a class="summary" href="{{ post.url }}">
+      {{ post.excerpt }}
+    </a>
+  </div>
+</article>
+{% endfor %}

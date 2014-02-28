@@ -1,0 +1,84 @@
+@import 'logo.css';
+
+body {
+  background-color: #111;
+  color: #feb308;
+  font-family: "anonymous-pro",monospace;
+}
+
+a {
+  color: #feb308;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.header {
+  padding: 8vw 0 0;
+  background-color: #222;
+  color: #fff;
+  text-align: center;
+}
+
+.header #worker path {
+  fill: #fff;
+}
+.header .about {
+  margin-top: 4vw;
+  padding: 2vw 0;
+  color: #feb308;
+  background-color: #111;
+}
+.cheesy-one-liner {
+  text-align: center;
+  font-family: "brandon-grotesque", 'Helvetica Neue', helvetica, sans-serif;
+  font-weight: 100;
+  font-size: 1.9em;
+  margin: 0;
+}
+.cheesy-one-liner .intersection {
+  font-family: serif;
+}
+
+.content {
+  line-height: 1.35;
+}
+.interior {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.episodes {
+  width: 100%;
+}
+.episode {
+  background-color: #fff;
+  color: #111;
+  padding: 2em;
+}
+.episode-title {
+  font-family: "brandon-grotesque", 'Helvetica Neue', helvetica, sans-serif;
+  font-size: 2.5em;
+}
+.episode-link {
+  color: #000;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #111;
+  display: block;
+}
+.episode-link:hover {
+  text-decoration: none;
+}
+.episode .summary {
+  display: block;
+  color: #111;
+  text-decoration: none;
+}
+.audio-player {
+  width: 100%;
+}
+
+.footer {
+  padding: 5vw 3vw;
+}

@@ -34,7 +34,7 @@ a:hover {
   text-align: center;
   font-family: "brandon-grotesque", 'Helvetica Neue', helvetica, sans-serif;
   font-weight: 100;
-  font-size: 1.9em;
+  font-size: 2em;
   margin: 0;
 }
 .cheesy-one-liner .intersection {
@@ -123,4 +123,16 @@ a:hover {
 
 .footer {
   padding: 5vw 3vw;
+  display: flex;
+  flex-flow: row-reverse wrap;
+  justify-content: space-between;
+  align-items: center;
 }
+.footer .attribution {
+  list-style: none;
+  padding: 0;
+  text-align: right;
+  line-height: 1.5;
+  font-size: 0.8em;
+}
+

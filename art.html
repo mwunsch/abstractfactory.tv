@@ -1,0 +1,60 @@
+---
+layout: none
+---
+<!DOCTYPE html>
+<html id="abstract-factory">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>{{ site.name }}</title>
+        <meta name="viewport" content="width=device-width">
+
+        <script type="text/javascript" src="//use.typekit.net/oxk0ozs.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.0/normalize.min.css">
+        <link rel="stylesheet" href="/css/logo.css">
+        <style type="text/css">
+          body {
+            background-color: #111;
+            color: #fff;
+            font-size: 4vh;
+          }
+          #worker path { fill: #fff; }
+          .container {
+            height: 100vh;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          }
+          .container .logo { text-align: center; }
+        </style>
+
+    </head>
+    <body>
+      <div class="container">
+        {% include logo.html %}
+      </div>
+      <script>
+        (function () {
+          var params = window.location.search,
+              query = {},
+              svg,paths;
+          if (params) {
+            params.slice(1).split("&").forEach(function (q) {
+              var pair = q.split("=");
+              query[pair[0]] = pair[1];
+            });
+            svg = document.getElementById("worker");
+            paths = svg.getElementsByTagName("path");
+            for (var i = 0; i < paths.length; i++) {
+              paths[i].style.fill = "#"+query.fg;
+            }
+            document.body.style.backgroundColor = "#"+query.bg;
+            document.body.style.color = "#"+query.fg;
+          }
+         }());
+      </script>
+    </body>
+</html>

@@ -3,5 +3,7 @@ layout: default
 ---
 
 {% assign post = page %}
-{% assign text = content %}
+{% capture body %}
+  {{ content }}
+{% endcapture %}
 {% include episode.html %}

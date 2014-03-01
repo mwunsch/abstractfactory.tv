@@ -3,6 +3,14 @@ layout: default
 ---
 
 {% for post in site.categories.episodes %}
+  {% capture body %}
+    <a class="summary" href="{{ post.url }}">
+      {{ post.excerpt }}
+    </a>
+  {% endcapture %}
   {% assign text = post.excerpt }} %}
   {% include episode.html %}
 {% endfor %}
+{% unless site.categories.episodes %}
+<div class="soon">Soon.</div>
+{% endunless %}

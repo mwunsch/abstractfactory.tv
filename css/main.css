@@ -34,7 +34,7 @@ a:hover {
   text-align: center;
   font-family: "brandon-grotesque", 'Helvetica Neue', helvetica, sans-serif;
   font-weight: 100;
-  font-size: 2em;
+  font-size: 2.5em;
   margin: 0;
 }
 .cheesy-one-liner .intersection {
@@ -58,6 +58,15 @@ a:hover {
 
 .content {
   line-height: 1.35;
+}
+.content .soon {
+  text-align: center;
+  font-size: 3em;
+  margin: 1em 0;
+  text-transform: uppercase;
+  font-family: "brandon-grotesque", 'Helvetica Neue', helvetica, sans-serif;
+  font-weight: 600;
+  font-style: italic;
 }
 .interior {
   max-width: 640px;

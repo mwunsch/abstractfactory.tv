@@ -12,9 +12,7 @@
     <audio controls class="audio-player listen-to-episode player-for-{{ identifier }}" src="{{ audio_path }}">
       Hello?
     </audio>
-    <a class="summary" href="{{ post.url }}">
-      {{ text }}
-    </a>
+    {{ body }}
     <footer class="episode-footer">
       <a class="episode-permalink" href="{{ post.url }}">
         <time class="episode-pubdate" datetime="{{ post.date | date_to_xml_schema }}">

@@ -1,0 +1,28 @@
+---
+layout: none
+---
+
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+<channel>
+  <title>{{ site.name }}</title>
+  <link>{{ site.url }}</link>
+  <description>
+    {{ site.description }}
+  </description>
+  <language>en-us</language>
+  <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
+
+  {% for post in site.categories.episodes %}
+  {% assign identifier =  post.id | split: "/" | last  %}
+  {% capture audio_path %}/audio/{{identifier}}.mp3{% endcapture %}
+  <item>
+    <title>{{ identifier }}: {{ post.title }}</title>
+    <link>{{ site.url | append: post.url }}</link>
+    <guid>{{ post.guid }}</guid>
+    <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
+    <enclosure url="{{ site.url | append: audio_path }}" length="{{ post.bytes }}" type="audio/mpeg" />
+  </item>
+  {% endfor %}
+</channel>
+</rss>

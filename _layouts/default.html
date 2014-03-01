@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>{{ site.name }} {% if page.title %}| {{page.title}}{% endif %}</title>
         <meta name="viewport" content="width=device-width">
+        <meta name="description" content="{{ site.description }}">
 
         <script type="text/javascript" src="//use.typekit.net/oxk0ozs.js"></script>
         <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
@@ -28,7 +29,7 @@
             </div>
             <ul class="actions">
               <li class="action">
-                <a href="/feeds.html" class="rss-action action-link"><i class="fa fa-rss fa-lg"></i> RSS</a>
+                <a href="/feed.xml" class="rss-action action-link"><i class="fa fa-rss fa-lg"></i> RSS</a>
               </li>
               {% comment %} <li class="action"> {% endcomment %}
               {% comment %}   <a href="/itunes.html" class="itunes-action action-link"><i class="fa fa-music fa-lg"></i> iTunes</a> {% endcomment %}

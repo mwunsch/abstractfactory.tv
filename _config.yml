@@ -2,5 +2,12 @@ name: Abstract Factory
 markdown: redcarpet
 exclude: [Gemfile, Gemfile.lock, Rakefile, bin, README]
 permalink: none
+url: http://www.abstractfactory.tv
+description: >
+  Abstract Factory is a podcast about technology, creativity, and society and
+  the space where the three combine—and sometimes conflict. What happens
+  to identity, community, and self-expression when the internet becomes our
+  world? Hosts @markwunsch and @ckolderup try to untangle what's happening in
+  the hearts and minds of those who spend their lives in front of screens all day.
 aws:
   bucket: www.abstractfactory.tv

@@ -11,7 +11,19 @@ layout: none
     {{ site.description }}
   </description>
   <language>en-us</language>
+  <pubDate>{{ site.categories.episodes.first.date | date_to_rfc822 }}</pubDate>
   <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
+  <itunes:author>Casey Kolderup &amp; Mark Wunsch</itunes:author>
+  <itunes:category text="Technology" />
+  <itunes:category text="Society &amp; Culture" />
+  <itunes:image href="{{ site.url | append: '/img/covers/itunes.png' }}" />
+  <itunes:owner>
+    <itunes:name>AbstractFactory.tv</itunes:name>
+    <itunes:email>info@abstractfactory.tv</itunes:email>
+  </itunes:owner>
+  <itunes:new-feed-url>{{ site.url | append: page.url }}</itunes:new-feed-url>
+  <itunes:subtitle>Technology &#8745; Creativity</itunes:subtitle>
+  <itunes:summary>{{ site.description }}</itunes:summary>
 
   {% for post in site.categories.episodes %}
   {% assign identifier =  post.id | split: "/" | last  %}
@@ -19,9 +31,15 @@ layout: none
   <item>
     <title>{{ identifier }}: {{ post.title }}</title>
     <link>{{ site.url | append: post.url }}</link>
-    <guid>{{ post.guid }}</guid>
+    <guid isPermaLink="false">{{ site.url | append: audio_path }}</guid>
     <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
     <enclosure url="{{ site.url | append: audio_path }}" length="{{ post.bytes }}" type="audio/mpeg" />
+    <description><![CDATA[ {{ post.content }} ]]></description>
+    <itunes:author>Casey Kolderup &amp; Mark Wunsch</itunes:author>
+    <itunes:duration>{{ post.duration }}</itunes:duration>
+    <itunes:image href="{{ site.url | append: '/img/covers/itunes.png' }}" />
+    <itunes:subtitle>{{ post.excerpt | strip_html }}</itunes:subtitle>
+    <itunes:summary>{{ post.excerpt | strip_html }}</itunes:summary>
   </item>
   {% endfor %}
 </channel>

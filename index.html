@@ -7,8 +7,10 @@ layout: default
     <a class="summary" href="{{ post.url }}">
       {{ post.excerpt }}
     </a>
+    <p class="read-more">
+      <a href="{{ post.url }}">Read more about this episode &rarr;</a>
+    </p>
   {% endcapture %}
-  {% assign text = post.excerpt }} %}
   {% include episode.html %}
 {% endfor %}
 

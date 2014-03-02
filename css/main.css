@@ -106,9 +106,13 @@ a:hover {
   text-decoration: none;
 }
 .episode-footer {
+  display: -webkit-flex;
   display: flex;
-  flex-flow: row wrap;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: space-between;
   justify-content: space-between;
+  -webkit-align-items: baseline;
   align-items: baseline;
 }
 .episode-footer a {
@@ -132,9 +136,13 @@ a:hover {
 
 .footer {
   padding: 5vw 3vw;
+  display: -webkit-flex;
   display: flex;
-  flex-flow: row-reverse wrap;
+  -webkit-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  -webkit-justify-content: space-between;
   justify-content: space-between;
+  -webkit-align-items: center;
   align-items: center;
 }
 .footer .attribution {
@@ -143,5 +151,37 @@ a:hover {
   text-align: right;
   line-height: 1.5;
   font-size: 0.8em;
+}
+
+@media (max-width: 840px) {
+  .footer {
+    -webkit-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+    -webkit-justify-content: center;
+    justify-content: center;
+  }
+  .footer .attribution { text-align: left; }
+}
+
+@media (max-width: 650px) {
+  .header .icon, .header .logo { display: block; }
+  .header .logo { text-align: inherit; }
+}
+
+@media (max-width: 520px) {
+  .header { font-size: 10px; }
+  .header .about, .header .actions { font-size: 12px; }
+  .episode { font-size: 12px; }
+  .episode-title { font-size: 1.5em; }
+  .episode-icon {
+    width: 36px;
+    height: 36px;
+  }
+  .episode-link { margin-left: 48px; }
+  .footer .attribution { font-size: 12px; }
+}
+
+@media(max-width: 420px) {
+  .cheesy-one-liner { font-size: 1.85em; }
 }
 

@@ -11,7 +11,7 @@ layout: none
     {{ site.description }}
   </description>
   <language>en-us</language>
-  <pubDate>{{ site.categories.episodes.first.date | date_to_rfc822 }}</pubDate>
+  <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
   <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
   <itunes:author>Casey Kolderup &amp; Mark Wunsch</itunes:author>
   <itunes:category text="Technology" />

@@ -1,15 +1,49 @@
 ---
-layout: splash
-title: Abstract Factory
+layout: none
 ---
 
-<div class="error">
-  <header class="header">
-    <div class="icon">
-      {% include worker.svg %}
-    </div>
-    <h1 class="errno">404 Not Found</h1>
-    <h2 class="status">ENOENT</h2>
-  </header>
-</div>
+<!DOCTYPE html>
+<html id="abstract-factory">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>{{ site.name }} | Error</title>
+        <meta name="viewport" content="width=device-width">
 
+        <script type="text/javascript" src="//use.typekit.net/oxk0ozs.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.0/normalize.min.css">
+        <link rel="stylesheet" href="/css/logo.css">
+        <style type="text/css">
+          body {
+            background-color: #aaa;
+            color: #ddd;
+            font-size: 4vmin;
+            font-family: "brandon-grotesque", 'Helvetica Neue', helvetica, sans-serif;
+          }
+          #worker path { fill: #ddd; }
+          .error {
+            height: 100vh;
+            text-align: center;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-flex-direction: column;
+            flex-direction: column;
+            -webkit-justify-content: center;
+            justify-content: center;
+          }
+          .errno, .status { margin: 0; }
+        </style>
+
+    </head>
+    <body>
+      <div class="error">
+        <div class="icon">
+          {% include worker.svg %}
+        </div>
+        <h1 class="status">404 Not Found</h1>
+        <h2 class="errno">ENOENT</h2>
+      </div>
+    </body>
+</html>

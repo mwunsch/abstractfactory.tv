@@ -70,6 +70,7 @@ end
 namespace "aws" do
   require 'aws-sdk'
 
+  # TODO: Only write new or modified objects to s3
   desc 'Write to the aws bucket'
   task :write => JEKYLL_DESTINATION do |t|
     t.prerequisites.map do |destination|

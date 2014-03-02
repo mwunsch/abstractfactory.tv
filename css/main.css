@@ -16,7 +16,8 @@ a:hover {
 
 .header {
   padding: 8vw 0 0;
-  background-color: #222;
+  background: #222 url(/img/hackerscity.gif) no-repeat center top;
+  background-size: 100% auto;
   color: #fff;
   text-align: center;
 }
@@ -42,6 +43,8 @@ a:hover {
 }
 .header .actions {
   margin: 0;
+  padding: 0;
+  background-color: #222;
 }
 .header .action {
   display: inline-block;
@@ -164,6 +167,7 @@ a:hover {
 }
 
 @media (max-width: 650px) {
+  .header { background-size: auto 100%; }
   .header .icon, .header .logo { display: block; }
   .header .logo { text-align: inherit; }
 }

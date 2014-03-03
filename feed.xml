@@ -14,7 +14,9 @@ layout: none
   <pubDate>{{ site.categories.episodes.first.date | date_to_rfc822 }}</pubDate>
   <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
   <itunes:author>Casey Kolderup &amp; Mark Wunsch</itunes:author>
-  <itunes:category text="Technology" />
+  <itunes:category text="Technology">
+    <itunes:category text="Tech News" />
+  </itunes:category>
   <itunes:category text="Society &amp; Culture" />
   <itunes:image href="{{ site.url | append: '/img/covers/itunes.png' }}" />
   <itunes:explicit>no</itunes:explicit>
@@ -26,7 +28,6 @@ layout: none
   </itunes:owner>
   <itunes:subtitle>Technology &#8745; Creativity</itunes:subtitle>
   <itunes:summary>{{ site.description }}</itunes:summary>
-
   {% for post in site.categories.episodes %}
   {% assign identifier =  post.id | split: "/" | last  %}
   {% capture audio_path %}/audio/abstractfactory-{{identifier}}.mp3{% endcapture %}

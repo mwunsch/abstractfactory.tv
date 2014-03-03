@@ -17,6 +17,7 @@ require 'pathname'
 require 'fileutils'
 require 'digest'
 require 'jekyll'
+require 'rack/mime'
 
 JEKYLL_CONFIGURATION = Jekyll.configuration({})
 JEKYLL_DESTINATION = JEKYLL_CONFIGURATION["destination"]
@@ -83,13 +84,11 @@ namespace "aws" do
             digest = Digest::MD5.file(path).hexdigest
             if obj.etag != %Q("#{digest}")
               puts %Q(Writing changed object: #{obj.key})
-              obj.write path
-              puts "- Object written: #{obj.public_url}"
+              write_object(obj, path)
             end
           else
             puts %Q(Writing new object: #{obj.key})
-            obj.write path
-            puts "- Object written: #{obj.public_url}"
+            write_object(obj, path)
           end
         }
       end
@@ -100,6 +99,11 @@ namespace "aws" do
   def bucket
     bucket = JEKYLL_CONFIGURATION['aws']['bucket']
     AWS::S3.new.buckets[bucket]
+  end
+
+  def write_object(obj, path)
+    obj.write path, content_type: Rack::Mime.mime_type(path.extname)
+    puts "- Object written: #{obj.public_url}"
   end
 end
 

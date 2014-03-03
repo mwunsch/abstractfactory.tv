@@ -41,6 +41,7 @@ GEM
     pygments.rb (0.5.4)
       posix-spawn (~> 0.3.6)
       yajl-ruby (~> 1.1.0)
+    rack (1.5.2)
     rake (10.1.1)
     rb-fsevent (0.9.4)
     rb-inotify (0.9.3)
@@ -61,5 +62,6 @@ PLATFORMS
 DEPENDENCIES
   aws-sdk
   jekyll
+  rack
   rake
   ruby-mp3info

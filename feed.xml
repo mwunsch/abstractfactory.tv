@@ -27,7 +27,7 @@ layout: none
 
   {% for post in site.categories.episodes %}
   {% assign identifier =  post.id | split: "/" | last  %}
-  {% capture audio_path %}/audio/{{identifier}}.mp3{% endcapture %}
+  {% capture audio_path %}/audio/abstractfactory-{{identifier}}.mp3{% endcapture %}
   <item>
     <title>{{ identifier }}: {{ post.title }}</title>
     <link>{{ site.url | append: post.url }}</link>

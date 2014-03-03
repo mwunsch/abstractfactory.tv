@@ -1,5 +1,5 @@
 {% assign identifier =  post.id | split: "/" | last  %}
-{% capture audio_path %}/audio/{{identifier}}.mp3{% endcapture %}
+{% capture audio_path %}/audio/abstractfactory-{{identifier}}.mp3{% endcapture %}
 {% capture icon_path %}icons/{{ post.icon }}.svg{% endcapture %}
 <article class="episode episode-{{ identifier }}">
   <div class="interior">

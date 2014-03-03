@@ -19,6 +19,7 @@ layout: none
   <itunes:image href="{{ site.url | append: '/img/covers/itunes.png' }}" />
   <itunes:explicit>no</itunes:explicit>
   <itunes:keywords>technology,creativity,wunsch,kolderup,internet,cyber,cloud,infosuicide</itunes:keywords>
+  <itunes:new-feed-url>{{ site.url | append: page.url }}</itunes:new-feed-url>
   <itunes:owner>
     <itunes:name>AbstractFactory.tv</itunes:name>
     <itunes:email>info@abstractfactory.tv</itunes:email>

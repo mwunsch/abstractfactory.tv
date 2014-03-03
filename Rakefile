@@ -15,6 +15,7 @@
 # spawning a thread for each object to be written.
 require 'pathname'
 require 'fileutils'
+require 'digest'
 require 'jekyll'
 
 JEKYLL_CONFIGURATION = Jekyll.configuration({})
@@ -70,7 +71,6 @@ end
 namespace "aws" do
   require 'aws-sdk'
 
-  # TODO: Only write new or modified objects to s3
   desc 'Write to the aws bucket'
   task :write => JEKYLL_DESTINATION do |t|
     t.prerequisites.map do |destination|
@@ -79,9 +79,18 @@ namespace "aws" do
         Thread.new {
           relative_path = path.relative_path_from Pathname.new(destination)
           obj = bucket.objects[relative_path.to_path]
-          puts %Q(Writing #{obj.key} to #{obj.bucket.name})
-          obj.write path
-          puts "- Object written: #{obj.public_url}"
+          if obj.exists?
+            digest = Digest::MD5.file(path).hexdigest
+            if obj.etag != %Q("#{digest}")
+              puts %Q(Writing changed object: #{obj.key})
+              obj.write path
+              puts "- Object written: #{obj.public_url}"
+            end
+          else
+            puts %Q(Writing new object: #{obj.key})
+            obj.write path
+            puts "- Object written: #{obj.public_url}"
+          end
         }
       end
       threads.each(&:join)

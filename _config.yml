@@ -1,6 +1,6 @@
 name: Abstract Factory
 markdown: redcarpet
-exclude: [Gemfile, Gemfile.lock, Rakefile, bin, README]
+exclude: [Gemfile, Gemfile.lock, Rakefile, bin, README, scripts]
 permalink: none
 url: http://www.abstractfactory.tv
 description: >

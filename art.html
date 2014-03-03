@@ -19,14 +19,17 @@ layout: none
           body {
             background-color: #111;
             color: #fff;
-            font-size: 4vmin;
+            font-size: 3vmin;
           }
           #worker path { fill: #fff; }
           .container {
             height: 100vh;
             text-align: center;
+            display: -webkit-flex;
             display: flex;
+            -webkit-flex-direction: column;
             flex-direction: column;
+            -webkit-justify-content: center;
             justify-content: center;
           }
           .container .logo { text-align: center; }

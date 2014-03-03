@@ -18,7 +18,7 @@ layout: none
     <itunes:category text="Tech News" />
   </itunes:category>
   <itunes:category text="Society &amp; Culture" />
-  <itunes:image href="{{ site.url | append: '/img/covers/itunes.png' }}" />
+  <itunes:image href="{{ site.url | append: '/img/art/2014-03-03.jpg' }}" />
   <itunes:explicit>no</itunes:explicit>
   <itunes:keywords>technology,creativity,wunsch,kolderup,internet,cyber,cloud,infosuicide</itunes:keywords>
   <itunes:new-feed-url>{{ site.url | append: page.url }}</itunes:new-feed-url>
@@ -40,7 +40,7 @@ layout: none
     <description><![CDATA[ {{ post.content }} ]]></description>
     <itunes:author>Casey Kolderup &amp; Mark Wunsch</itunes:author>
     <itunes:duration>{{ post.duration }}</itunes:duration>
-    <itunes:image href="{{ site.url | append: '/img/covers/itunes.png' }}" />
+    <itunes:image href="{{ site.url | append: '/img/art/2014-03-03.jpg' }}" />
     <itunes:subtitle>{{ post.subtitle | strip_html }}</itunes:subtitle>
     <itunes:summary>{{ post.excerpt | strip_html }}</itunes:summary>
   </item>

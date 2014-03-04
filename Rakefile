@@ -96,9 +96,28 @@ namespace "aws" do
     end
   end
 
+  desc 'Print all the S3 server logs to STDOUT'
+  task :log, [:limit] do |t, args|
+    logs.each(limit: args.limit) do |obj|
+      obj.read {|chunk| $stdout.write chunk }
+    end
+  end
+
+  desc 'Faux tail the S3 logs with an optional line limit'
+  task :tail, [:limit] do |t, args|
+    logs.reverse_each.take(args.limit ? args.limit.to_i : 20).reverse_each do |obj|
+      obj.read {|chunk| $stdout.write chunk }
+    end
+  end
+
   def bucket
-    bucket = JEKYLL_CONFIGURATION['aws']['bucket']
-    AWS::S3.new.buckets[bucket]
+    b = JEKYLL_CONFIGURATION['aws']['bucket']
+    AWS::S3.new.buckets[b]
+  end
+
+  def logs
+    b = JEKYLL_CONFIGURATION['aws']['logs']
+    AWS::S3.new.buckets[b].objects.with_prefix("logs/")
   end
 
   def write_object(obj, path)

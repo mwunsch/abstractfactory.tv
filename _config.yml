@@ -11,3 +11,4 @@ description: >
   the hearts and minds of those who spend their lives in front of screens all day.
 aws:
   bucket: www.abstractfactory.tv
+  logs: logs.abstractfactory.tv

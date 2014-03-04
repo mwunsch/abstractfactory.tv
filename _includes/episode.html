@@ -9,7 +9,7 @@
         <span class="episode-number">Episode {{ identifier }}:</span> <span class="episode-name">{{ post.title }}</span>
       </a>
     </h1>
-    <audio controls class="audio-player listen-to-episode player-for-{{ identifier }}" src="{{ audio_path }}" type="audio/mpeg">
+    <audio controls class="audio-player listen-to-episode" id="player-for-{{ identifier }}" src="{{ audio_path }}" type="audio/mpeg">
       Hello?
     </audio>
     {{ body }}

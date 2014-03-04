@@ -66,5 +66,23 @@
           ga('create', 'UA-48353846-1', 'abstractfactory.tv');
           ga('send', 'pageview');
         </script>
+
+        <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+        <script>
+          $(function () {
+            $(".audio-player").on("playing", function (e) {
+              ga('send', 'event', e.target.id, 'playing', 'audio');
+            });
+            $(".audio-player").on("pause", function (e) {
+              ga('send', 'event', e.target.id, 'pause', 'audio');
+            });
+            $(".audio-player").on("ended", function (e) {
+              ga('send', 'event', e.target.id, 'ended', 'audio');
+            });
+            $(".episode-actions .download-action").on("click", function (e) {
+              ga('send', 'event', this.getAttribute("href"), 'download', 'downloads');
+            });
+          });
+        </script>
     </body>
 </html>

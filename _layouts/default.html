@@ -69,18 +69,35 @@
 
         <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
         <script>
+          // Yeah I know I probably don't need jQuery for this but ugh then
+          // I would have to write some loops.
           $(function () {
-            $(".audio-player").on("playing", function (e) {
+            var $players = $(".audio-player"),
+                $downloadLinks = $(".episode-actions .download-action"),
+                $headerLinks = $(".header .action-link");
+
+            $players.on("playing", function (e) {
               ga('send', 'event', e.target.id, 'playing', 'audio');
             });
-            $(".audio-player").on("pause", function (e) {
-              ga('send', 'event', e.target.id, 'pause', 'audio');
+            $players.on("pause", function (e) {
+              var player = e.target,
+                  playedSoFar = Math.round(player.played.end(0));
+              ga('send', 'event', player.id, 'pause', 'audio', playedSoFar);
             });
-            $(".audio-player").on("ended", function (e) {
+            $players.on("ended", function (e) {
               ga('send', 'event', e.target.id, 'ended', 'audio');
             });
-            $(".episode-actions .download-action").on("click", function (e) {
-              ga('send', 'event', this.getAttribute("href"), 'download', 'downloads');
+            $downloadLinks.on("click", function (e) {
+              ga('send', 'pageview', this.getAttribute("href"));
+            });
+            $headerLinks.filter(".rss-action").on("click", function (e) {
+              ga('send', 'pageview', this.getAttribute("href"));
+            });
+            $headerLinks.filter(".itunes-action").on("click", function (e) {
+              ga('send', 'pageview', "/itunes");
+            });
+            $headerLinks.filter(".twitter-action").on("click", function (e) {
+              ga('send', 'pageview', "/twitter");
             });
           });
         </script>

@@ -1,0 +1,12 @@
+<form class="huffduffer-form" method="get" action="http://huffduffer.com/add">
+  <input type="hidden" name="popup" value="true" />
+  <input type="hidden" name="bookmark[url]" value="{{site.url | append: audio_path}}" />
+  <input type="hidden" name="bookmark[title]" value="{{site.name}} | Episode {{identifier}}: {{post.title}}" />
+  <input type="hidden" name="bookmark[description]" value="{{post.excerpt | strip_html}}&#10;{{ site.url | append: post.url}}" />
+  <input type="hidden" name="bookmark[tags]" value="'abstract factory'" />
+
+  <button class="action-link link">
+    {% comment %}&#9758; Huffduff it{% endcomment %}
+    <i class="fa fa-hand-o-right"></i> Huffduff
+  </button>
+</form>

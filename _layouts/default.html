@@ -74,7 +74,8 @@
           $(function () {
             var $players = $(".audio-player"),
                 $downloadLinks = $(".episode-actions .download-action"),
-                $headerLinks = $(".header .action-link");
+                $headerLinks = $(".header .action-link"),
+                $huffdufferForm = $(".huffduffer-form");
 
             $players.on("playing", function (e) {
               ga('send', 'event', e.target.id, 'playing', 'audio');
@@ -89,6 +90,24 @@
             });
             $downloadLinks.on("click", function (e) {
               ga('send', 'pageview', this.getAttribute("href"));
+            });
+            $huffdufferForm.on("submit", function (e) {
+              e.preventDefault();
+              var form = e.target,
+                  link = document.createElement("a"),
+                  windowWidth = 360,
+                  windowHeight = 480,
+                  windowTop,
+                  windowLeft;
+
+              link.href = form.action
+              link.search = $(form).serialize();
+
+              windowLeft = (screen.availWidth/2) - (windowWidth/2);
+              windowTop = (screen.availHeight/2) - (windowHeight/2);
+
+              ga('send', 'pageview', "/huffduffer");
+              window.open(link.href, 'huffduff', 'scrollbars=1,status=0,resizable=1,location=0,toolbar=0,top='+windowTop+',left='+windowLeft+',width='+windowWidth+',height='+windowHeight+'');
             });
             $headerLinks.filter(".rss-action").on("click", function (e) {
               ga('send', 'pageview', this.getAttribute("href"));

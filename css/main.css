@@ -118,10 +118,15 @@ a:hover {
   -webkit-align-items: baseline;
   align-items: baseline;
 }
-.episode-footer a {
+.episode-footer a, .episode-footer button.link {
   color: #999;
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0;
+  display: block;
 }
-.episode-footer a:hover {
+.episode-footer a:hover, .episode-footer button.link:hover {
   color: #000;
   text-decoration: none;
 }
@@ -131,6 +136,13 @@ a:hover {
 }
 .episode-action {
   display: inline-block;
+  vertical-align: middle;
+  padding-right: 0.5em;
+  border-right: 1px solid #999;
+}
+.episode-action:last-of-type {
+  border-right: none;
+  padding-right: 0;
 }
 .audio-player {
   clear: both;

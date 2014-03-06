@@ -1,28 +1,38 @@
-#! /usr/bin/env ruby
+#! /usr/bin/env awk -f
 # Write S3 Log Format to Apache Combined Log Format
-#   via http://sixones.com/2012/11/06/s3-logs-into-combined-log-format.html
 #
 #   http://docs.aws.amazon.com/AmazonS3/latest/dev/LogFormat.html
 #   http://httpd.apache.org/docs/1.3/logs.html#combined
 #
 
-$stdin.each_line do |line|
-  if line =~ /[\w+] ([\w\.]+) \[([^\]]+)\] ([\d\.]+) (?:[\w-])* (?:[\w-])* (?:[\w\.]+) ([^\s]+)? (?:[^\s"]*)(?:"([^"]+)"|-) ([\d-]+) ([\w-]+) ([\d-]+) ([\d-]+) ([\d-]+) ([\d-]+) (?:"([^"]+)"|-) (?:"([^"]+)"|-) (?:\w+|-)/i
-    
-    # 1 => host
-    # 2 => date + time
-    # 3 => client address
-    # 4 => path
-    # 5 => request
-    # 6 => status code
-    # 7 => error code
-    # 8 => bytes sent
-    # 9 => total bytes
-    # 10 => total time
-    # 11 => turn around time
-    # 12 => referrer
-    # 13 => user agent
-    
-    $stdout.write %Q(#{$3} - [#{$2}] "#{$5}" #{$6} #{$8} "#{$12}" "#{$13}"\n")
-  end
-end
+{
+  # NF 20 is the beginning of the User Agent String
+  # The last field (NF) is the Version ID
+  # This loop concatenates the UA string together
+  ua=$20
+  for (i=21; i<NF; i++) {
+    ua=(ua " " $i);
+  }
+  print $5,"-",$6,$3,$4,$10,$11,$12,$13,$15,$19,ua;
+}
+#
+# If using the aws:log Rake tasks, pipe the output to
+#   tail -n +2
+# in order to cut out the first line
+#
+# Some one liners to pipe this into to get interesting information:
+#
+#   Print User Agents requesting the feed:
+#   awk -F\" '($2 ~ /feed\.xml/) { print $6 }
+#
+#   Get uniq user agents (could be used with the above as well):
+#   awk -F\" '{print $6}' | sort | uniq -c | sort -fr
+#
+#   Downloaded MP3s (partial downloads) by IP address
+#   awk -F\" '($2 ~ /GET\ .+\.mp3/) { print }' | awk '($9 == 206) { print $1,$7 }'
+#
+#     and from that you can do: sort | uniq -c | sort -r and finally a wc -l
+#     will give you number of unique ip addresses that downloaded something
+#
+#   Get Error HTTP Responses...
+#   awk '($9 > 399) { print $9,$7 }'

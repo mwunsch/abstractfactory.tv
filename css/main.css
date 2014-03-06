@@ -87,6 +87,7 @@ a:hover {
 .episode-title {
   font-family: "brandon-grotesque", 'Helvetica Neue', helvetica, sans-serif;
   font-size: 2.5em;
+  text-rendering: optimizeLegibility;
 }
 .episode-link {
   color: #000;
@@ -147,6 +148,9 @@ a:hover {
 .audio-player {
   clear: both;
   width: 100%;
+}
+.audio-error {
+  font-family: "brandon-grotesque", 'Helvetica Neue', helvetica, sans-serif;
 }
 
 .footer {

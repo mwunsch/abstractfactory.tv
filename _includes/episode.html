@@ -9,8 +9,8 @@
         <span class="episode-number">Episode {{ identifier }}:</span> <span class="episode-name">{{ post.title }}</span>
       </a>
     </h1>
-    <audio controls class="audio-player listen-to-episode" id="player-for-{{ identifier }}" src="{{ audio_path }}" type="audio/mpeg">
-      Hello?
+    <audio controls class="audio-player listen-to-episode" id="player-for-{{ identifier }}" src="{{ audio_path }}" type="audio/mpeg" preload="none">
+      <p class="audio-error">ENOTSUP: Error loading audio player. <a href="{{audio_path}}">Download the mp3 directly.</a></p>
     </audio>
     {{ body }}
     <footer class="episode-footer">

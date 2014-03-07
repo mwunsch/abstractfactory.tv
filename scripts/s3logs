@@ -36,3 +36,10 @@
 #
 #   Get Error HTTP Responses...
 #   awk '($9 > 399) { print $9,$7 }'
+#
+#   For 206 responses, print out IP addresses and the total bytes downloaded
+#   awk '($9 == 206){ addresses[$1] += $10; } END { for (x in addresses) { print x, addresses[x]; } }'
+#
+#   Then sum that total with
+#   awk '{ sum += $2 } END { print sum }'
+#

@@ -21,6 +21,10 @@ a:hover {
   color: #fff;
   text-align: center;
 }
+.header > a {
+  color: #fff;
+  text-decoration: none;
+}
 
 .header #worker path {
   fill: #fff;

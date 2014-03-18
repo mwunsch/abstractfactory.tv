@@ -1,0 +1,15 @@
+---
+layout: default
+---
+
+<ul class="episode-index">
+{% for post in site.categories.episodes reversed %}
+{% assign identifier =  post.id | split: "/" | last  %}
+{% capture icon_path %}icons/{{ post.icon }}.svg{% endcapture %}
+  <li class="episode" title="Episode {{identifier}}: {{post.title}}">
+    <a href="{{post.url}}">
+      {% include {{icon_path}} class="episode-icon" %}
+    </a>
+  </li>
+{% endfor %}
+</ul>

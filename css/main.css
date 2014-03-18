@@ -88,6 +88,21 @@ a:hover {
   color: #111;
   padding: 2em;
 }
+.episode-index {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+}
+.episode-index .episode {
+  display: inline-block;
+  margin: 2em 1em;
+  padding: 0;
+}
+.episode-index .episode-icon {
+  width: 128px;
+  height: 128px;
+}
 .episode-title {
   font-family: "brandon-grotesque", 'Helvetica Neue', helvetica, sans-serif;
   font-size: 2.5em;

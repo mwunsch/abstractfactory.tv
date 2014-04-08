@@ -4,9 +4,14 @@
 page = require("webpage").create()
 system = require("system")
 
-
 url = "http://www.abstractfactory.tv/art.html"
+fgcolor = system.args[1]
+bgcolor = system.args[2]
+
 page.viewportSize = { width: 1400, height: 1400 }
+
+url += "?fg=#{fgcolor}" if fgcolor?
+url += "&bg=#{bgcolor}" if bgcolor?
 
 page.open url, (status) ->
   [date,time] = new Date().toISOString().split("T")

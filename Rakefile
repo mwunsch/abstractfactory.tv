@@ -83,7 +83,7 @@ namespace "aws" do
           if obj.exists?
             digest = Digest::MD5.file(path).hexdigest
             if obj.etag != %Q("#{digest}")
-              puts %Q(Writing changed object: #{obj.key})
+              puts %Q(Writing changed object: #{obj.key} (#{obj.etag}|#{digest}))
               write_object(obj, path)
             end
           else
